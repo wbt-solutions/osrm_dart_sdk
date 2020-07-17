@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **geometry** | [**Object**](.md) |  | [optional] 
 **weight** | **double** |  | [optional] 
 **name** | **String** |  | [optional] 
-**ref** | **num** |  | [optional] 
+**ref** | **String** |  | [optional] 
 **pronunciation** | **String** |  | [optional] 
 **destinations** | [**Object**](.md) |  | [optional] 
 **exits** | [**Object**](.md) |  | [optional] 

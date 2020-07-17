@@ -12,7 +12,7 @@ class RouteStep {
   
   String name;
   
-  num ref;
+  String ref;
   
   String pronunciation;
   
