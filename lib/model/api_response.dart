@@ -2,7 +2,7 @@ part of osrm_dart_sdk.api;
 
 class ApiResponse {
   
-  ApiResponseCodeEnum code = ;
+  ApiResponseCodeEnum code;
   
   String message;
   

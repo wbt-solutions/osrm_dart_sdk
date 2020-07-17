@@ -93,7 +93,7 @@ var generateHints = true; // bool | Adds a Hint to the response which can be use
 var hints = hints_example; // String | Hint from previous request to derive position in street network.
 var approaches = approaches_example; // String | Keep waypoints on curb side.
 var exclude = exclude_example; // String | Additive list of classes to avoid, order does not matter.
-var alternatives = ; // dynamic | Search for alternative routes. Passing a number alternatives=n searches for up to n alternative routes.
+var alternatives; // dynamic | Search for alternative routes. Passing a number alternatives=n searches for up to n alternative routes.
 var steps = true; // bool | Returned route steps for each route leg
 var annotations = true; // bool | Returns additional metadata for each coordinate along the route geometry.
 var geometries = geometries_example; // String | Returned route geometry format (influences overview and per step)

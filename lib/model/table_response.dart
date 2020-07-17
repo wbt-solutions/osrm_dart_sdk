@@ -2,7 +2,7 @@ part of osrm_dart_sdk.api;
 
 class TableResponse {
   
-  TableResponseCodeEnum code = ;
+  TableResponseCodeEnum code;
   
   String message;
   

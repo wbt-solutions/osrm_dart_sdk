@@ -2,7 +2,7 @@ part of osrm_dart_sdk.api;
 
 class NearestResponse {
   
-  NearestResponseCodeEnum code = ;
+  NearestResponseCodeEnum code;
   
   String message;
   

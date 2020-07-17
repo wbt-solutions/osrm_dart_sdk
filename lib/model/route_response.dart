@@ -2,7 +2,7 @@ part of osrm_dart_sdk.api;
 
 class RouteResponse {
   
-  RouteResponseCodeEnum code = ;
+  RouteResponseCodeEnum code;
   
   String message;
   

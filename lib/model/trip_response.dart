@@ -2,7 +2,7 @@ part of osrm_dart_sdk.api;
 
 class TripResponse {
   
-  TripResponseCodeEnum code = ;
+  TripResponseCodeEnum code;
   
   String message;
   
