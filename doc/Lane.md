@@ -9,7 +9,7 @@ import 'package:osrm_dart_sdk/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **indications** | **List&lt;String&gt;** |  | [optional] [default to const []]
-**valid** | **String** |  | [optional] 
+**valid** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

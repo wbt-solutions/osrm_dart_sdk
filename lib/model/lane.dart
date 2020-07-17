@@ -4,7 +4,7 @@ class Lane {
   
   List<String> indications = const [];
   
-  LaneValidEnum valid;
+  bool valid;
 
   Lane({
     this.indications,
@@ -21,7 +21,7 @@ class Lane {
     indications = (json['indications'] == null) ?
       null :
       (json['indications'] as List).cast<String>();
-    valid = LaneValidEnum.fromJson(json['valid']);
+    valid = json['valid'];
   }
 
   Map<String, dynamic> toJson() {
@@ -29,7 +29,7 @@ class Lane {
     if (indications != null)
       json['indications'] = indications;
     if (valid != null)
-      json['valid'] = valid.value;
+      json['valid'] = valid;
     return json;
   }
 
@@ -56,48 +56,4 @@ class Lane {
     return map;
   }
 }
-class LaneValidEnum {
-  /// The underlying value of this enum member.
-  final String value;
-
-  const LaneValidEnum._internal(this.value);
-
-  static const LaneValidEnum true_ = LaneValidEnum._internal("true");
-  static const LaneValidEnum false_ = LaneValidEnum._internal("false");
-
-  String toJson () {
-    return value;
-  }
-
-  @override
-  String toString () {
-    return value;
-  }
-
-  static LaneValidEnum fromJson(String value) {
-    return LaneValidEnumTypeTransformer().decode(value);
-  }
-
-  static List<LaneValidEnum> listFromJson(List<dynamic> json) {
-    return json == null
-        ? List<LaneValidEnum>()
-        : json.map((value) => LaneValidEnum.fromJson(value)).toList();
-  }
-}
-
-class LaneValidEnumTypeTransformer {
-
-  dynamic encode(LaneValidEnum data) {
-    return data.value;
-  }
-
-  LaneValidEnum decode(dynamic data) {
-    switch (data) {
-      case "true": return LaneValidEnum.true_;
-      case "false": return LaneValidEnum.false_;
-      default: return null;
-    }
-  }
-}
-
 

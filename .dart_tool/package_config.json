@@ -81,7 +81,7 @@
     },
     {
       "name": "http",
-      "rootUri": "file:///C:/Users/flame/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/http-0.12.2",
+      "rootUri": "file:///C:/Users/flame/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/http-0.12.1",
       "packageUri": "lib/",
       "languageVersion": "2.4"
     },
@@ -314,7 +314,7 @@
       "languageVersion": "2.0"
     }
   ],
-  "generated": "2020-07-17T17:57:09.919511Z",
+  "generated": "2020-07-17T18:15:00.499398Z",
   "generator": "pub",
   "generatorVersion": "2.7.2"
 }
