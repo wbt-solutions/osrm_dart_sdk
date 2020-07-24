@@ -16,8 +16,8 @@ class TripResponse {
     @required this.code,
     this.message,
     this.dataVersion,
-    this.waypoints,
-    this.trips,
+    this.waypoints = const [],
+    this.trips = const [],
   });
 
   @override
@@ -113,8 +113,8 @@ class TripResponseCodeEnum {
 
   static List<TripResponseCodeEnum> listFromJson(List<dynamic> json) {
     return json == null
-        ? List<TripResponseCodeEnum>()
-        : json.map((value) => TripResponseCodeEnum.fromJson(value)).toList();
+      ? List<TripResponseCodeEnum>()
+      : json.map((value) => TripResponseCodeEnum.fromJson(value)).toList();
   }
 }
 

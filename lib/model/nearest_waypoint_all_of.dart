@@ -5,7 +5,7 @@ class NearestWaypointAllOf {
   List<int> nodes = const [];
 
   NearestWaypointAllOf({
-    this.nodes,
+    this.nodes = const [],
   });
 
   @override

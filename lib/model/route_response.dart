@@ -16,8 +16,8 @@ class RouteResponse {
     @required this.code,
     this.message,
     this.dataVersion,
-    this.waypoints,
-    this.routes,
+    this.waypoints = const [],
+    this.routes = const [],
   });
 
   @override
@@ -113,8 +113,8 @@ class RouteResponseCodeEnum {
 
   static List<RouteResponseCodeEnum> listFromJson(List<dynamic> json) {
     return json == null
-        ? List<RouteResponseCodeEnum>()
-        : json.map((value) => RouteResponseCodeEnum.fromJson(value)).toList();
+      ? List<RouteResponseCodeEnum>()
+      : json.map((value) => RouteResponseCodeEnum.fromJson(value)).toList();
   }
 }
 

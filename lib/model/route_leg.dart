@@ -19,7 +19,7 @@ class RouteLeg {
     this.duration,
     this.weight,
     this.summary,
-    this.steps,
+    this.steps = const [],
     this.annotation,
   });
 

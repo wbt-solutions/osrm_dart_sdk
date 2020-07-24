@@ -16,7 +16,7 @@ class TripWaypoint {
 
   TripWaypoint({
     this.name,
-    this.location,
+    this.location = const [],
     this.distance,
     this.hint,
     this.tripsIndex,

@@ -7,7 +7,7 @@ class Lane {
   bool valid;
 
   Lane({
-    this.indications,
+    this.indications = const [],
     this.valid,
   });
 

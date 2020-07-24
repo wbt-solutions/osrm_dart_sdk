@@ -5,7 +5,7 @@ class AnnotationMetadata {
   List<String> datasourceNames = const [];
 
   AnnotationMetadata({
-    this.datasourceNames,
+    this.datasourceNames = const [],
   });
 
   @override

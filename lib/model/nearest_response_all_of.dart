@@ -5,7 +5,7 @@ class NearestResponseAllOf {
   List<NearestWaypoint> waypoints = const [];
 
   NearestResponseAllOf({
-    this.waypoints,
+    this.waypoints = const [],
   });
 
   @override

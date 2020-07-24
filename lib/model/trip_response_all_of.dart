@@ -7,8 +7,8 @@ class TripResponseAllOf {
   List<Route> trips = const [];
 
   TripResponseAllOf({
-    this.waypoints,
-    this.trips,
+    this.waypoints = const [],
+    this.trips = const [],
   });
 
   @override

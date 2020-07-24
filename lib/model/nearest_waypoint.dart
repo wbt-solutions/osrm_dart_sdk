@@ -14,10 +14,10 @@ class NearestWaypoint {
 
   NearestWaypoint({
     this.name,
-    this.location,
+    this.location = const [],
     this.distance,
     this.hint,
-    this.nodes,
+    this.nodes = const [],
   });
 
   @override

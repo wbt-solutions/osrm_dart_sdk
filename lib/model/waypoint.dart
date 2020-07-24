@@ -12,7 +12,7 @@ class Waypoint {
 
   Waypoint({
     this.name,
-    this.location,
+    this.location = const [],
     this.distance,
     this.hint,
   });

@@ -20,7 +20,7 @@ class Route {
     this.geometry,
     this.weight,
     this.weightName,
-    this.legs,
+    this.legs = const [],
   });
 
   @override

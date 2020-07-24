@@ -15,7 +15,7 @@ class StepManeuver {
   int exit;
 
   StepManeuver({
-    this.location,
+    this.location = const [],
     this.bearingBefore,
     this.bearingAfter,
     this.type,

@@ -97,8 +97,8 @@ class ApiResponseCodeEnum {
 
   static List<ApiResponseCodeEnum> listFromJson(List<dynamic> json) {
     return json == null
-        ? List<ApiResponseCodeEnum>()
-        : json.map((value) => ApiResponseCodeEnum.fromJson(value)).toList();
+      ? List<ApiResponseCodeEnum>()
+      : json.map((value) => ApiResponseCodeEnum.fromJson(value)).toList();
   }
 }
 

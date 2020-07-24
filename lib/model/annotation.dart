@@ -17,12 +17,12 @@ class Annotation {
   AnnotationMetadata metadata;
 
   Annotation({
-    this.distance,
-    this.duration,
-    this.datasources,
-    this.nodes,
-    this.weight,
-    this.speed,
+    this.distance = const [],
+    this.duration = const [],
+    this.datasources = const [],
+    this.nodes = const [],
+    this.weight = const [],
+    this.speed = const [],
     this.metadata,
   });
 

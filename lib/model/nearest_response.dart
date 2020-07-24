@@ -14,7 +14,7 @@ class NearestResponse {
     @required this.code,
     this.message,
     this.dataVersion,
-    this.waypoints,
+    this.waypoints = const [],
   });
 
   @override
@@ -105,8 +105,8 @@ class NearestResponseCodeEnum {
 
   static List<NearestResponseCodeEnum> listFromJson(List<dynamic> json) {
     return json == null
-        ? List<NearestResponseCodeEnum>()
-        : json.map((value) => NearestResponseCodeEnum.fromJson(value)).toList();
+      ? List<NearestResponseCodeEnum>()
+      : json.map((value) => NearestResponseCodeEnum.fromJson(value)).toList();
   }
 }
 

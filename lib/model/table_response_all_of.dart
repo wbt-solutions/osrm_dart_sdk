@@ -13,11 +13,11 @@ class TableResponseAllOf {
   List<List<int>> fallbackSpeedCells = const [];
 
   TableResponseAllOf({
-    this.durations,
-    this.distances,
-    this.sources,
-    this.destinations,
-    this.fallbackSpeedCells,
+    this.durations = const [],
+    this.distances = const [],
+    this.sources = const [],
+    this.destinations = const [],
+    this.fallbackSpeedCells = const [],
   });
 
   @override

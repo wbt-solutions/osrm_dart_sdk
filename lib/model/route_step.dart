@@ -44,7 +44,7 @@ class RouteStep {
     this.exits,
     this.mode,
     this.maneuver,
-    this.intersections,
+    this.intersections = const [],
     this.rotaryName,
     this.rotaryPronunciation,
     this.drivingSide,
@@ -166,8 +166,8 @@ class RouteStepDrivingSideEnum {
 
   static List<RouteStepDrivingSideEnum> listFromJson(List<dynamic> json) {
     return json == null
-        ? List<RouteStepDrivingSideEnum>()
-        : json.map((value) => RouteStepDrivingSideEnum.fromJson(value)).toList();
+      ? List<RouteStepDrivingSideEnum>()
+      : json.map((value) => RouteStepDrivingSideEnum.fromJson(value)).toList();
   }
 }
 

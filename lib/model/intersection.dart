@@ -8,7 +8,7 @@ class Intersection {
   
   List<String> classes = const [];
   
-  List<String> entry = const [];
+  List<bool> entry = const [];
   
   int in_;
   
@@ -17,13 +17,13 @@ class Intersection {
   List<Lane> lanes = const [];
 
   Intersection({
-    this.location,
-    this.bearings,
-    this.classes,
-    this.entry,
+    this.location = const [],
+    this.bearings = const [],
+    this.classes = const [],
+    this.entry = const [],
     this.in_,
     this.out_,
-    this.lanes,
+    this.lanes = const [],
   });
 
   @override
@@ -44,7 +44,7 @@ class Intersection {
       (json['classes'] as List).cast<String>();
     entry = (json['entry'] == null) ?
       null :
-      (json['entry'] as List).cast<String>();
+      (json['entry'] as List).cast<bool>();
     in_ = json['in'];
     out_ = json['out'];
     lanes = (json['lanes'] == null) ?

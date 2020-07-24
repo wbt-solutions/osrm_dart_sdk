@@ -22,11 +22,11 @@ class TableResponse {
     @required this.code,
     this.message,
     this.dataVersion,
-    this.durations,
-    this.distances,
-    this.sources,
-    this.destinations,
-    this.fallbackSpeedCells,
+    this.durations = const [],
+    this.distances = const [],
+    this.sources = const [],
+    this.destinations = const [],
+    this.fallbackSpeedCells = const [],
   });
 
   @override
@@ -146,8 +146,8 @@ class TableResponseCodeEnum {
 
   static List<TableResponseCodeEnum> listFromJson(List<dynamic> json) {
     return json == null
-        ? List<TableResponseCodeEnum>()
-        : json.map((value) => TableResponseCodeEnum.fromJson(value)).toList();
+      ? List<TableResponseCodeEnum>()
+      : json.map((value) => TableResponseCodeEnum.fromJson(value)).toList();
   }
 }
 
