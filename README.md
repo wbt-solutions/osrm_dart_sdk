@@ -40,23 +40,23 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import 'package:osrm_dart_sdk/api.dart';
 
 
-var api_instance = OSRMApi();
-var version = version_example; // String | Version of the protocol implemented by the service. v1 for all OSRM 5.x installations
-var profile = profile_example; // String | Mode of transportation, is determined statically by the Lua profile that is used to prepare the data using osrm-extract. Typically car, bike or foot if using one of the supplied profiles.
-var coordinate = coordinate_example; // String | 
-var number = 56; // int | Number of nearest segments that should be returned.
-var bearings = bearings_example; // String | Limits the search to segments with given bearing in degrees towards true north in clockwise direction.
-var radiuses = radiuses_example; // String | Limits the search to given radius in meters.
-var generateHints = true; // bool | Adds a Hint to the response which can be used in subsequent requests, see hints parameter.
-var hints = hints_example; // String | Hint from previous request to derive position in street network.
-var approaches = approaches_example; // String | Keep waypoints on curb side.
-var exclude = exclude_example; // String | Additive list of classes to avoid, order does not matter.
+final api_instance = OSRMApi();
+final version = version_example; // String | Version of the protocol implemented by the service. v1 for all OSRM 5.x installations
+final profile = profile_example; // String | Mode of transportation, is determined statically by the Lua profile that is used to prepare the data using osrm-extract. Typically car, bike or foot if using one of the supplied profiles.
+final coordinate = coordinate_example; // String | 
+final number = 56; // int | Number of nearest segments that should be returned.
+final bearings = bearings_example; // String | Limits the search to segments with given bearing in degrees towards true north in clockwise direction.
+final radiuses = radiuses_example; // String | Limits the search to given radius in meters.
+final generateHints = true; // bool | Adds a Hint to the response which can be used in subsequent requests, see hints parameter.
+final hints = hints_example; // String | Hint from previous request to derive position in street network.
+final approaches = approaches_example; // String | Keep waypoints on curb side.
+final exclude = exclude_example; // String | Additive list of classes to avoid, order does not matter.
 
 try {
-    var result = api_instance.nearest(version, profile, coordinate, number, bearings, radiuses, generateHints, hints, approaches, exclude);
+    final result = api_instance.nearest(version, profile, coordinate, number, bearings, radiuses, generateHints, hints, approaches, exclude);
     print(result);
 } catch (e) {
-    print("Exception when calling OSRMApi->nearest: $e\n");
+    print('Exception when calling OSRMApi->nearest: $e\n');
 }
 
 ```

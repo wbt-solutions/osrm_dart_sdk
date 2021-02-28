@@ -8,7 +8,7 @@ import 'package:osrm_dart_sdk/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**location** | **List&lt;double&gt;** |  | [optional] [default to const []]
+**location** | **List<double>** |  | [optional] [default to const []]
 **bearingBefore** | **int** |  | [optional] 
 **bearingAfter** | **int** |  | [optional] 
 **type** | **String** |  | [optional] 

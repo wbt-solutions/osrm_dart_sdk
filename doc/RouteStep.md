@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **exits** | [**Object**](.md) |  | [optional] 
 **mode** | **String** |  | [optional] 
 **maneuver** | [**StepManeuver**](StepManeuver.md) |  | [optional] 
-**intersections** | [**List&lt;Intersection&gt;**](Intersection.md) |  | [optional] [default to const []]
+**intersections** | [**List<Intersection>**](Intersection.md) |  | [optional] [default to const []]
 **rotaryName** | **String** |  | [optional] 
 **rotaryPronunciation** | **String** |  | [optional] 
 **drivingSide** | **String** |  | [optional] 

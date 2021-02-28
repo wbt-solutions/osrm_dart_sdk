@@ -4,5 +4,6 @@
   "pubDescription": "Dart SDK for the Open Source Routing Machine",
   "pubAuthor": "WBT-Solutions",
   "pubAuthorEmail": "development@wbt-solutions.de",
-  "pubHomepage": "https://github.com/wbt-solutions/osrm_dart_sdk"
+  "pubHomepage": "https://github.com/wbt-solutions/osrm_dart_sdk",
+  "pubLibrary": "osrm_dart_sdk.api"
 }

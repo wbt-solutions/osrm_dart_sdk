@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **duration** | **double** |  | [optional] 
 **weight** | **double** |  | [optional] 
 **summary** | **String** |  | [optional] 
-**steps** | [**List&lt;RouteStep&gt;**](RouteStep.md) |  | [optional] [default to const []]
+**steps** | [**List<RouteStep>**](RouteStep.md) |  | [optional] [default to const []]
 **annotation** | [**Annotation**](Annotation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

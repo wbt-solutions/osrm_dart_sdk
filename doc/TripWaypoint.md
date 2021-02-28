@@ -9,7 +9,7 @@ import 'package:osrm_dart_sdk/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
-**location** | **List&lt;double&gt;** |  | [optional] [default to const []]
+**location** | **List<double>** |  | [optional] [default to const []]
 **distance** | **double** |  | [optional] 
 **hint** | **String** |  | [optional] 
 **tripsIndex** | **int** |  | [optional] 

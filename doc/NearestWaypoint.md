@@ -9,10 +9,10 @@ import 'package:osrm_dart_sdk/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
-**location** | **List&lt;double&gt;** |  | [optional] [default to const []]
+**location** | **List<double>** |  | [optional] [default to const []]
 **distance** | **double** |  | [optional] 
 **hint** | **String** |  | [optional] 
-**nodes** | **List&lt;int&gt;** |  | [optional] [default to const []]
+**nodes** | **List<int>** |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

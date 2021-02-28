@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **code** | **String** |  | 
 **message** | **String** |  | [optional] 
 **dataVersion** | [**DateTime**](DateTime.md) |  | [optional] 
-**waypoints** | [**List&lt;NearestWaypoint&gt;**](NearestWaypoint.md) |  | [optional] [default to const []]
+**waypoints** | [**List<NearestWaypoint>**](NearestWaypoint.md) |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
