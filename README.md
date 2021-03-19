@@ -17,7 +17,7 @@ If this Dart package is published to Github, add the following dependency to you
 ```
 dependencies:
   osrm_dart_sdk:
-    git: https://github.com/GIT_USER_ID/GIT_REPO_ID.git
+    git: https://github.com/wbt-solutions/osrm_dart_sdk.git
 ```
 
 ### Local

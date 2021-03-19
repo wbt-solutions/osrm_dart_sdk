@@ -61,7 +61,7 @@ class OSRMApi {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: number');
     }
 
-    final path = '/nearest/{version}/{profile}/{coordinate}.json'
+    final path = r'/nearest/{version}/{profile}/{coordinate}.json'
       .replaceAll('{' + 'version' + '}', version.toString())
       .replaceAll('{' + 'profile' + '}', profile.toString())
       .replaceAll('{' + 'coordinate' + '}', coordinate.toString());
@@ -160,8 +160,8 @@ class OSRMApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'NearestResponse') as NearestResponse;
-    }
-    return null;
+        }
+    return Future<NearestResponse>.value(null);
   }
 
   /// Performs an HTTP 'GET /route/{version}/{profile}/{coordinates}' operation and returns the [Response].
@@ -225,7 +225,7 @@ class OSRMApi {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: coordinates');
     }
 
-    final path = '/route/{version}/{profile}/{coordinates}'
+    final path = r'/route/{version}/{profile}/{coordinates}'
       .replaceAll('{' + 'version' + '}', version.toString())
       .replaceAll('{' + 'profile' + '}', profile.toString())
       .replaceAll('{' + 'coordinates' + '}', coordinates.toString());
@@ -362,8 +362,8 @@ class OSRMApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'RouteResponse') as RouteResponse;
-    }
-    return null;
+        }
+    return Future<RouteResponse>.value(null);
   }
 
   /// Performs an HTTP 'GET /table/{version}/{profile}/{coordinates}' operation and returns the [Response].
@@ -412,7 +412,7 @@ class OSRMApi {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: coordinates');
     }
 
-    final path = '/table/{version}/{profile}/{coordinates}'
+    final path = r'/table/{version}/{profile}/{coordinates}'
       .replaceAll('{' + 'version' + '}', version.toString())
       .replaceAll('{' + 'profile' + '}', profile.toString())
       .replaceAll('{' + 'coordinates' + '}', coordinates.toString());
@@ -519,8 +519,8 @@ class OSRMApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'TableResponse') as TableResponse;
-    }
-    return null;
+        }
+    return Future<TableResponse>.value(null);
   }
 
   /// Performs an HTTP 'GET /trip/{version}/{profile}/{coordinates}' operation and returns the [Response].
@@ -584,7 +584,7 @@ class OSRMApi {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: coordinates');
     }
 
-    final path = '/trip/{version}/{profile}/{coordinates}'
+    final path = r'/trip/{version}/{profile}/{coordinates}'
       .replaceAll('{' + 'version' + '}', version.toString())
       .replaceAll('{' + 'profile' + '}', profile.toString())
       .replaceAll('{' + 'coordinates' + '}', coordinates.toString());
@@ -721,7 +721,7 @@ class OSRMApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'TripResponse') as TripResponse;
-    }
-    return null;
+        }
+    return Future<TripResponse>.value(null);
   }
 }

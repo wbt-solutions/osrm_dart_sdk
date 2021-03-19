@@ -6,7 +6,7 @@ name: 'osrm_dart_sdk'
 version: '0.0.1'
 description: 'Dart SDK for the Open Source Routing Machine'
 authors:
-  - 'WBT-Solutions <development@wbt-solutions.de>'
+  - 'wbt-solutions <development@wbt-solutions.de>'
 homepage: 'https://github.com/wbt-solutions/osrm_dart_sdk'
 environment:
   sdk: '>=2.0.0 <3.0.0'
