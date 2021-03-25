@@ -19,6 +19,7 @@ class TableResponseAllOf {
     this.fallbackSpeedCells = const [],
   });
 
+  /// array of arrays that stores the matrix in row-major order. durations[i][j] gives the travel time from the i-th waypoint to the j-th waypoint. Values are given in seconds.
   List<List<double>> durations;
 
   List<List<double>> distances;

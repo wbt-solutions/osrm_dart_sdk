@@ -21,8 +21,10 @@ class Annotation {
     this.metadata,
   });
 
+  /// The distance, in metres, between each pair of coordinates
   List<int> distance;
 
+  /// The duration between each pair of coordinates, in seconds
   List<int> duration;
 
   List<int> datasources;

@@ -8,8 +8,8 @@ import 'package:osrm_dart_sdk/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**distance** | **double** |  | [optional] 
-**duration** | **double** |  | [optional] 
+**distance** | **double** | The distance traveled by the route, in float meters. | [optional] 
+**duration** | **double** | The estimated travel time, in float number of seconds. | [optional] 
 **geometry** | [**Object**](.md) |  | [optional] 
 **weight** | **double** |  | [optional] 
 **name** | **String** |  | [optional] 

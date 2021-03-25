@@ -63,7 +63,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://router.project-osrm.org*
+All URIs are relative to *https://router.project-osrm.org*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

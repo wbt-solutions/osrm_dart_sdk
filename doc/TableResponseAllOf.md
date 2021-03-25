@@ -8,7 +8,7 @@ import 'package:osrm_dart_sdk/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**durations** | [**List<List<double>>**](List.md) |  | [optional] [default to const []]
+**durations** | [**List<List<double>>**](List.md) | array of arrays that stores the matrix in row-major order. durations[i][j] gives the travel time from the i-th waypoint to the j-th waypoint. Values are given in seconds. | [optional] [default to const []]
 **distances** | [**List<List<double>>**](List.md) |  | [optional] [default to const []]
 **sources** | [**List<Waypoint>**](Waypoint.md) |  | [optional] [default to const []]
 **destinations** | [**List<Waypoint>**](Waypoint.md) |  | [optional] [default to const []]

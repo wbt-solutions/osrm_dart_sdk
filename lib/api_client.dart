@@ -10,7 +10,7 @@
 part of osrm_dart_sdk.api;
 
 class ApiClient {
-  ApiClient({this.basePath = 'http://router.project-osrm.org'}) {
+  ApiClient({this.basePath = 'https://router.project-osrm.org'}) {
   }
 
   final String basePath;

@@ -5,7 +5,7 @@
 import 'package:osrm_dart_sdk/api.dart';
 ```
 
-All URIs are relative to *http://router.project-osrm.org*
+All URIs are relative to *https://router.project-osrm.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

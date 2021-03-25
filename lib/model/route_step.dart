@@ -29,8 +29,10 @@ class RouteStep {
     this.drivingSide,
   });
 
+  /// The distance traveled by the route, in float meters.
   double distance;
 
+  /// The estimated travel time, in float number of seconds.
   double duration;
 
   Object geometry;

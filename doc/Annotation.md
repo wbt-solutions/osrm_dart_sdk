@@ -8,8 +8,8 @@ import 'package:osrm_dart_sdk/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**distance** | **List<int>** |  | [optional] [default to const []]
-**duration** | **List<int>** |  | [optional] [default to const []]
+**distance** | **List<int>** | The distance, in metres, between each pair of coordinates | [optional] [default to const []]
+**duration** | **List<int>** | The duration between each pair of coordinates, in seconds | [optional] [default to const []]
 **datasources** | **List<int>** |  | [optional] [default to const []]
 **nodes** | **List<int>** |  | [optional] [default to const []]
 **weight** | **List<int>** |  | [optional] [default to const []]
