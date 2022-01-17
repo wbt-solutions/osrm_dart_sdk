@@ -1,10 +1,11 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of osrm_dart_sdk.api;
@@ -12,7 +13,7 @@ part of osrm_dart_sdk.api;
 class TableResponse {
   /// Returns a new [TableResponse] instance.
   TableResponse({
-    @required this.code,
+    required this.code,
     this.message,
     this.dataVersion,
     this.durations = const [],
@@ -24,9 +25,21 @@ class TableResponse {
 
   TableResponseCodeEnum code;
 
-  String message;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? message;
 
-  DateTime dataVersion;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  DateTime? dataVersion;
 
   /// array of arrays that stores the matrix in row-major order. durations[i][j] gives the travel time from the i-th waypoint to the j-th waypoint. Values are given in seconds.
   List<List<double>> durations;
@@ -52,14 +65,15 @@ class TableResponse {
 
   @override
   int get hashCode =>
-    (code == null ? 0 : code.hashCode) +
-    (message == null ? 0 : message.hashCode) +
-    (dataVersion == null ? 0 : dataVersion.hashCode) +
-    (durations == null ? 0 : durations.hashCode) +
-    (distances == null ? 0 : distances.hashCode) +
-    (sources == null ? 0 : sources.hashCode) +
-    (destinations == null ? 0 : destinations.hashCode) +
-    (fallbackSpeedCells == null ? 0 : fallbackSpeedCells.hashCode);
+    // ignore: unnecessary_parenthesis
+    (code.hashCode) +
+    (message == null ? 0 : message!.hashCode) +
+    (dataVersion == null ? 0 : dataVersion!.hashCode) +
+    (durations.hashCode) +
+    (distances.hashCode) +
+    (sources.hashCode) +
+    (destinations.hashCode) +
+    (fallbackSpeedCells.hashCode);
 
   @override
   String toString() => 'TableResponse[code=$code, message=$message, dataVersion=$dataVersion, durations=$durations, distances=$distances, sources=$sources, destinations=$destinations, fallbackSpeedCells=$fallbackSpeedCells]';
@@ -71,78 +85,106 @@ class TableResponse {
       json[r'message'] = message;
     }
     if (dataVersion != null) {
-      json[r'data_version'] = dataVersion.toUtc().toIso8601String();
+      json[r'data_version'] = dataVersion!.toUtc().toIso8601String();
     }
-    if (durations != null) {
       json[r'durations'] = durations;
-    }
-    if (distances != null) {
       json[r'distances'] = distances;
-    }
-    if (sources != null) {
       json[r'sources'] = sources;
-    }
-    if (destinations != null) {
       json[r'destinations'] = destinations;
-    }
-    if (fallbackSpeedCells != null) {
       json[r'fallback_speed_cells'] = fallbackSpeedCells;
-    }
     return json;
   }
 
   /// Returns a new [TableResponse] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static TableResponse fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : TableResponse(
-        code: TableResponseCodeEnum.fromJson(json[r'code']),
-        message: json[r'message'],
-        dataVersion: json[r'data_version'] == null
-          ? null
-          : DateTime.parse(json[r'data_version']),
-        durations: json[r'durations'] == null
-          ? null
-          : (json[r'durations'] as List).map(
-              (e) => e == null ? null : (e as List).cast<double>()
-            ).toList(growable: false),
-        distances: json[r'distances'] == null
-          ? null
-          : (json[r'distances'] as List).map(
-              (e) => e == null ? null : (e as List).cast<double>()
-            ).toList(growable: false),
-        sources: Waypoint.listFromJson(json[r'sources']),
-        destinations: Waypoint.listFromJson(json[r'destinations']),
-        fallbackSpeedCells: json[r'fallback_speed_cells'] == null
-          ? null
-          : (json[r'fallback_speed_cells'] as List).map(
-              (e) => e == null ? null : (e as List).cast<int>()
-            ).toList(growable: false),
-    );
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static TableResponse? fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
 
-  static List<TableResponse> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <TableResponse>[]
-      : json.map((v) => TableResponse.fromJson(v)).toList(growable: true == growable);
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "TableResponse[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "TableResponse[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
 
-  static Map<String, TableResponse> mapFromJson(Map<String, dynamic> json) {
+      return TableResponse(
+        code: TableResponseCodeEnum.fromJson(json[r'code'])!,
+        message: mapValueOfType<String>(json, r'message'),
+        dataVersion: mapDateTime(json, r'data_version', ''),
+        durations: json[r'durations'] is List
+          ? (json[r'durations'] as List).map(
+              (e) => e == null ? <double>[] : (e as List).cast<double>()
+            ).toList()
+          : [],
+        distances: json[r'distances'] is List
+          ? (json[r'distances'] as List).map(
+              (e) => e == null ? <double>[] : (e as List).cast<double>()
+            ).toList()
+          : [],
+        sources: Waypoint.listFromJson(json[r'sources']) ?? const [],
+        destinations: Waypoint.listFromJson(json[r'destinations']) ?? const [],
+        fallbackSpeedCells: json[r'fallback_speed_cells'] is List
+          ? (json[r'fallback_speed_cells'] as List).map(
+              (e) => e == null ? <int>[] : (e as List).cast<int>()
+            ).toList()
+          : [],
+      );
+    }
+    return null;
+  }
+
+  static List<TableResponse>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <TableResponse>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = TableResponse.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
+
+  static Map<String, TableResponse> mapFromJson(dynamic json) {
     final map = <String, TableResponse>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = TableResponse.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = TableResponse.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of TableResponse-objects as value to a dart map
-  static Map<String, List<TableResponse>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<TableResponse>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<TableResponse>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = TableResponse.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = TableResponse.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'code',
+  };
 }
 
 
@@ -189,23 +231,28 @@ class TableResponseCodeEnum {
     noTrips,
   ];
 
-  static TableResponseCodeEnum fromJson(dynamic value) =>
-    TableResponseCodeEnumTypeTransformer().decode(value);
+  static TableResponseCodeEnum? fromJson(dynamic value) => TableResponseCodeEnumTypeTransformer().decode(value);
 
-  static List<TableResponseCodeEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <TableResponseCodeEnum>[]
-      : json
-          .map((value) => TableResponseCodeEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<TableResponseCodeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <TableResponseCodeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = TableResponseCodeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [TableResponseCodeEnum] to String,
 /// and [decode] dynamic data back to [TableResponseCodeEnum].
 class TableResponseCodeEnumTypeTransformer {
-  const TableResponseCodeEnumTypeTransformer._();
+  factory TableResponseCodeEnumTypeTransformer() => _instance ??= const TableResponseCodeEnumTypeTransformer._();
 
-  factory TableResponseCodeEnumTypeTransformer() => _instance ??= TableResponseCodeEnumTypeTransformer._();
+  const TableResponseCodeEnumTypeTransformer._();
 
   String encode(TableResponseCodeEnum data) => data.value;
 
@@ -217,30 +264,33 @@ class TableResponseCodeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  TableResponseCodeEnum decode(dynamic data, {bool allowNull}) {
-    switch (data) {
-      case r'Ok': return TableResponseCodeEnum.ok;
-      case r'InvalidUrl': return TableResponseCodeEnum.invalidUrl;
-      case r'InvalidService': return TableResponseCodeEnum.invalidService;
-      case r'InvalidVersion': return TableResponseCodeEnum.invalidVersion;
-      case r'InvalidOptions': return TableResponseCodeEnum.invalidOptions;
-      case r'InvalidQuery': return TableResponseCodeEnum.invalidQuery;
-      case r'InvalidValue': return TableResponseCodeEnum.invalidValue;
-      case r'NoSegment': return TableResponseCodeEnum.noSegment;
-      case r'TooBig': return TableResponseCodeEnum.tooBig;
-      case r'NoRoute': return TableResponseCodeEnum.noRoute;
-      case r'NoTable': return TableResponseCodeEnum.noTable;
-      case r'NotImplemented': return TableResponseCodeEnum.notImplemented;
-      case r'NoTrips': return TableResponseCodeEnum.noTrips;
-      default:
-        if (allowNull == false) {
-          throw ArgumentError('Unknown enum value to decode: $data');
-        }
+  TableResponseCodeEnum? decode(dynamic data, {bool allowNull = true}) {
+    if (data != null) {
+      switch (data.toString()) {
+        case r'Ok': return TableResponseCodeEnum.ok;
+        case r'InvalidUrl': return TableResponseCodeEnum.invalidUrl;
+        case r'InvalidService': return TableResponseCodeEnum.invalidService;
+        case r'InvalidVersion': return TableResponseCodeEnum.invalidVersion;
+        case r'InvalidOptions': return TableResponseCodeEnum.invalidOptions;
+        case r'InvalidQuery': return TableResponseCodeEnum.invalidQuery;
+        case r'InvalidValue': return TableResponseCodeEnum.invalidValue;
+        case r'NoSegment': return TableResponseCodeEnum.noSegment;
+        case r'TooBig': return TableResponseCodeEnum.tooBig;
+        case r'NoRoute': return TableResponseCodeEnum.noRoute;
+        case r'NoTable': return TableResponseCodeEnum.noTable;
+        case r'NotImplemented': return TableResponseCodeEnum.notImplemented;
+        case r'NoTrips': return TableResponseCodeEnum.noTrips;
+        default:
+          if (!allowNull) {
+            throw ArgumentError('Unknown enum value to decode: $data');
+          }
+      }
     }
     return null;
   }
 
   /// Singleton [TableResponseCodeEnumTypeTransformer] instance.
-  static TableResponseCodeEnumTypeTransformer _instance;
+  static TableResponseCodeEnumTypeTransformer? _instance;
 }
+
 

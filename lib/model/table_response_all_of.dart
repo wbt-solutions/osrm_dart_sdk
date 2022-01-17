@@ -1,10 +1,11 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of osrm_dart_sdk.api;
@@ -40,81 +41,111 @@ class TableResponseAllOf {
 
   @override
   int get hashCode =>
-    (durations == null ? 0 : durations.hashCode) +
-    (distances == null ? 0 : distances.hashCode) +
-    (sources == null ? 0 : sources.hashCode) +
-    (destinations == null ? 0 : destinations.hashCode) +
-    (fallbackSpeedCells == null ? 0 : fallbackSpeedCells.hashCode);
+    // ignore: unnecessary_parenthesis
+    (durations.hashCode) +
+    (distances.hashCode) +
+    (sources.hashCode) +
+    (destinations.hashCode) +
+    (fallbackSpeedCells.hashCode);
 
   @override
   String toString() => 'TableResponseAllOf[durations=$durations, distances=$distances, sources=$sources, destinations=$destinations, fallbackSpeedCells=$fallbackSpeedCells]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (durations != null) {
       json[r'durations'] = durations;
-    }
-    if (distances != null) {
       json[r'distances'] = distances;
-    }
-    if (sources != null) {
       json[r'sources'] = sources;
-    }
-    if (destinations != null) {
       json[r'destinations'] = destinations;
-    }
-    if (fallbackSpeedCells != null) {
       json[r'fallback_speed_cells'] = fallbackSpeedCells;
-    }
     return json;
   }
 
   /// Returns a new [TableResponseAllOf] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static TableResponseAllOf fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : TableResponseAllOf(
-        durations: json[r'durations'] == null
-          ? null
-          : (json[r'durations'] as List).map(
-              (e) => e == null ? null : (e as List).cast<double>()
-            ).toList(growable: false),
-        distances: json[r'distances'] == null
-          ? null
-          : (json[r'distances'] as List).map(
-              (e) => e == null ? null : (e as List).cast<double>()
-            ).toList(growable: false),
-        sources: Waypoint.listFromJson(json[r'sources']),
-        destinations: Waypoint.listFromJson(json[r'destinations']),
-        fallbackSpeedCells: json[r'fallback_speed_cells'] == null
-          ? null
-          : (json[r'fallback_speed_cells'] as List).map(
-              (e) => e == null ? null : (e as List).cast<int>()
-            ).toList(growable: false),
-    );
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static TableResponseAllOf? fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
 
-  static List<TableResponseAllOf> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <TableResponseAllOf>[]
-      : json.map((v) => TableResponseAllOf.fromJson(v)).toList(growable: true == growable);
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "TableResponseAllOf[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "TableResponseAllOf[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
 
-  static Map<String, TableResponseAllOf> mapFromJson(Map<String, dynamic> json) {
+      return TableResponseAllOf(
+        durations: json[r'durations'] is List
+          ? (json[r'durations'] as List).map(
+              (e) => e == null ? <double>[] : (e as List).cast<double>()
+            ).toList()
+          : [],
+        distances: json[r'distances'] is List
+          ? (json[r'distances'] as List).map(
+              (e) => e == null ? <double>[] : (e as List).cast<double>()
+            ).toList()
+          : [],
+        sources: Waypoint.listFromJson(json[r'sources']) ?? const [],
+        destinations: Waypoint.listFromJson(json[r'destinations']) ?? const [],
+        fallbackSpeedCells: json[r'fallback_speed_cells'] is List
+          ? (json[r'fallback_speed_cells'] as List).map(
+              (e) => e == null ? <int>[] : (e as List).cast<int>()
+            ).toList()
+          : [],
+      );
+    }
+    return null;
+  }
+
+  static List<TableResponseAllOf>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <TableResponseAllOf>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = TableResponseAllOf.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
+
+  static Map<String, TableResponseAllOf> mapFromJson(dynamic json) {
     final map = <String, TableResponseAllOf>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = TableResponseAllOf.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = TableResponseAllOf.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of TableResponseAllOf-objects as value to a dart map
-  static Map<String, List<TableResponseAllOf>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<TableResponseAllOf>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<TableResponseAllOf>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = TableResponseAllOf.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = TableResponseAllOf.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

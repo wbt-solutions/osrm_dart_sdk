@@ -1,10 +1,11 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of osrm_dart_sdk.api;
@@ -12,7 +13,7 @@ part of osrm_dart_sdk.api;
 class TripResponse {
   /// Returns a new [TripResponse] instance.
   TripResponse({
-    @required this.code,
+    required this.code,
     this.message,
     this.dataVersion,
     this.waypoints = const [],
@@ -21,9 +22,21 @@ class TripResponse {
 
   TripResponseCodeEnum code;
 
-  String message;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? message;
 
-  DateTime dataVersion;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  DateTime? dataVersion;
 
   List<TripWaypoint> waypoints;
 
@@ -39,11 +52,12 @@ class TripResponse {
 
   @override
   int get hashCode =>
-    (code == null ? 0 : code.hashCode) +
-    (message == null ? 0 : message.hashCode) +
-    (dataVersion == null ? 0 : dataVersion.hashCode) +
-    (waypoints == null ? 0 : waypoints.hashCode) +
-    (trips == null ? 0 : trips.hashCode);
+    // ignore: unnecessary_parenthesis
+    (code.hashCode) +
+    (message == null ? 0 : message!.hashCode) +
+    (dataVersion == null ? 0 : dataVersion!.hashCode) +
+    (waypoints.hashCode) +
+    (trips.hashCode);
 
   @override
   String toString() => 'TripResponse[code=$code, message=$message, dataVersion=$dataVersion, waypoints=$waypoints, trips=$trips]';
@@ -55,54 +69,88 @@ class TripResponse {
       json[r'message'] = message;
     }
     if (dataVersion != null) {
-      json[r'data_version'] = dataVersion.toUtc().toIso8601String();
+      json[r'data_version'] = dataVersion!.toUtc().toIso8601String();
     }
-    if (waypoints != null) {
       json[r'waypoints'] = waypoints;
-    }
-    if (trips != null) {
       json[r'trips'] = trips;
-    }
     return json;
   }
 
   /// Returns a new [TripResponse] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static TripResponse fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : TripResponse(
-        code: TripResponseCodeEnum.fromJson(json[r'code']),
-        message: json[r'message'],
-        dataVersion: json[r'data_version'] == null
-          ? null
-          : DateTime.parse(json[r'data_version']),
-        waypoints: TripWaypoint.listFromJson(json[r'waypoints']),
-        trips: Route.listFromJson(json[r'trips']),
-    );
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static TripResponse? fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
 
-  static List<TripResponse> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <TripResponse>[]
-      : json.map((v) => TripResponse.fromJson(v)).toList(growable: true == growable);
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "TripResponse[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "TripResponse[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
 
-  static Map<String, TripResponse> mapFromJson(Map<String, dynamic> json) {
+      return TripResponse(
+        code: TripResponseCodeEnum.fromJson(json[r'code'])!,
+        message: mapValueOfType<String>(json, r'message'),
+        dataVersion: mapDateTime(json, r'data_version', ''),
+        waypoints: TripWaypoint.listFromJson(json[r'waypoints']) ?? const [],
+        trips: Route.listFromJson(json[r'trips']) ?? const [],
+      );
+    }
+    return null;
+  }
+
+  static List<TripResponse>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <TripResponse>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = TripResponse.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
+
+  static Map<String, TripResponse> mapFromJson(dynamic json) {
     final map = <String, TripResponse>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = TripResponse.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = TripResponse.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of TripResponse-objects as value to a dart map
-  static Map<String, List<TripResponse>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<TripResponse>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<TripResponse>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = TripResponse.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = TripResponse.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'code',
+  };
 }
 
 
@@ -149,23 +197,28 @@ class TripResponseCodeEnum {
     noTrips,
   ];
 
-  static TripResponseCodeEnum fromJson(dynamic value) =>
-    TripResponseCodeEnumTypeTransformer().decode(value);
+  static TripResponseCodeEnum? fromJson(dynamic value) => TripResponseCodeEnumTypeTransformer().decode(value);
 
-  static List<TripResponseCodeEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <TripResponseCodeEnum>[]
-      : json
-          .map((value) => TripResponseCodeEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<TripResponseCodeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <TripResponseCodeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = TripResponseCodeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [TripResponseCodeEnum] to String,
 /// and [decode] dynamic data back to [TripResponseCodeEnum].
 class TripResponseCodeEnumTypeTransformer {
-  const TripResponseCodeEnumTypeTransformer._();
+  factory TripResponseCodeEnumTypeTransformer() => _instance ??= const TripResponseCodeEnumTypeTransformer._();
 
-  factory TripResponseCodeEnumTypeTransformer() => _instance ??= TripResponseCodeEnumTypeTransformer._();
+  const TripResponseCodeEnumTypeTransformer._();
 
   String encode(TripResponseCodeEnum data) => data.value;
 
@@ -177,30 +230,33 @@ class TripResponseCodeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  TripResponseCodeEnum decode(dynamic data, {bool allowNull}) {
-    switch (data) {
-      case r'Ok': return TripResponseCodeEnum.ok;
-      case r'InvalidUrl': return TripResponseCodeEnum.invalidUrl;
-      case r'InvalidService': return TripResponseCodeEnum.invalidService;
-      case r'InvalidVersion': return TripResponseCodeEnum.invalidVersion;
-      case r'InvalidOptions': return TripResponseCodeEnum.invalidOptions;
-      case r'InvalidQuery': return TripResponseCodeEnum.invalidQuery;
-      case r'InvalidValue': return TripResponseCodeEnum.invalidValue;
-      case r'NoSegment': return TripResponseCodeEnum.noSegment;
-      case r'TooBig': return TripResponseCodeEnum.tooBig;
-      case r'NoRoute': return TripResponseCodeEnum.noRoute;
-      case r'NoTable': return TripResponseCodeEnum.noTable;
-      case r'NotImplemented': return TripResponseCodeEnum.notImplemented;
-      case r'NoTrips': return TripResponseCodeEnum.noTrips;
-      default:
-        if (allowNull == false) {
-          throw ArgumentError('Unknown enum value to decode: $data');
-        }
+  TripResponseCodeEnum? decode(dynamic data, {bool allowNull = true}) {
+    if (data != null) {
+      switch (data.toString()) {
+        case r'Ok': return TripResponseCodeEnum.ok;
+        case r'InvalidUrl': return TripResponseCodeEnum.invalidUrl;
+        case r'InvalidService': return TripResponseCodeEnum.invalidService;
+        case r'InvalidVersion': return TripResponseCodeEnum.invalidVersion;
+        case r'InvalidOptions': return TripResponseCodeEnum.invalidOptions;
+        case r'InvalidQuery': return TripResponseCodeEnum.invalidQuery;
+        case r'InvalidValue': return TripResponseCodeEnum.invalidValue;
+        case r'NoSegment': return TripResponseCodeEnum.noSegment;
+        case r'TooBig': return TripResponseCodeEnum.tooBig;
+        case r'NoRoute': return TripResponseCodeEnum.noRoute;
+        case r'NoTable': return TripResponseCodeEnum.noTable;
+        case r'NotImplemented': return TripResponseCodeEnum.notImplemented;
+        case r'NoTrips': return TripResponseCodeEnum.noTrips;
+        default:
+          if (!allowNull) {
+            throw ArgumentError('Unknown enum value to decode: $data');
+          }
+      }
     }
     return null;
   }
 
   /// Singleton [TripResponseCodeEnumTypeTransformer] instance.
-  static TripResponseCodeEnumTypeTransformer _instance;
+  static TripResponseCodeEnumTypeTransformer? _instance;
 }
+
 

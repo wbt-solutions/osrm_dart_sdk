@@ -1,10 +1,11 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of osrm_dart_sdk.api;
@@ -20,17 +21,47 @@ class TripWaypoint {
     this.waypointIndex,
   });
 
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
   List<double> location;
 
-  double distance;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? distance;
 
-  String hint;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? hint;
 
-  int tripsIndex;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? tripsIndex;
 
-  int waypointIndex;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? waypointIndex;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is TripWaypoint &&
@@ -43,12 +74,13 @@ class TripWaypoint {
 
   @override
   int get hashCode =>
-    (name == null ? 0 : name.hashCode) +
-    (location == null ? 0 : location.hashCode) +
-    (distance == null ? 0 : distance.hashCode) +
-    (hint == null ? 0 : hint.hashCode) +
-    (tripsIndex == null ? 0 : tripsIndex.hashCode) +
-    (waypointIndex == null ? 0 : waypointIndex.hashCode);
+    // ignore: unnecessary_parenthesis
+    (name == null ? 0 : name!.hashCode) +
+    (location.hashCode) +
+    (distance == null ? 0 : distance!.hashCode) +
+    (hint == null ? 0 : hint!.hashCode) +
+    (tripsIndex == null ? 0 : tripsIndex!.hashCode) +
+    (waypointIndex == null ? 0 : waypointIndex!.hashCode);
 
   @override
   String toString() => 'TripWaypoint[name=$name, location=$location, distance=$distance, hint=$hint, tripsIndex=$tripsIndex, waypointIndex=$waypointIndex]';
@@ -58,9 +90,7 @@ class TripWaypoint {
     if (name != null) {
       json[r'name'] = name;
     }
-    if (location != null) {
       json[r'location'] = location;
-    }
     if (distance != null) {
       json[r'distance'] = distance;
     }
@@ -77,42 +107,81 @@ class TripWaypoint {
   }
 
   /// Returns a new [TripWaypoint] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static TripWaypoint fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : TripWaypoint(
-        name: json[r'name'],
-        location: json[r'location'] == null
-          ? null
-          : (json[r'location'] as List).cast<double>(),
-        distance: json[r'distance'],
-        hint: json[r'hint'],
-        tripsIndex: json[r'trips_index'],
-        waypointIndex: json[r'waypoint_index'],
-    );
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static TripWaypoint? fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
 
-  static List<TripWaypoint> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <TripWaypoint>[]
-      : json.map((v) => TripWaypoint.fromJson(v)).toList(growable: true == growable);
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "TripWaypoint[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "TripWaypoint[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
 
-  static Map<String, TripWaypoint> mapFromJson(Map<String, dynamic> json) {
+      return TripWaypoint(
+        name: mapValueOfType<String>(json, r'name'),
+        location: json[r'location'] is List
+            ? (json[r'location'] as List).cast<double>()
+            : const [],
+        distance: mapValueOfType<double>(json, r'distance'),
+        hint: mapValueOfType<String>(json, r'hint'),
+        tripsIndex: mapValueOfType<int>(json, r'trips_index'),
+        waypointIndex: mapValueOfType<int>(json, r'waypoint_index'),
+      );
+    }
+    return null;
+  }
+
+  static List<TripWaypoint>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <TripWaypoint>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = TripWaypoint.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
+
+  static Map<String, TripWaypoint> mapFromJson(dynamic json) {
     final map = <String, TripWaypoint>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = TripWaypoint.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = TripWaypoint.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of TripWaypoint-objects as value to a dart map
-  static Map<String, List<TripWaypoint>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<TripWaypoint>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<TripWaypoint>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = TripWaypoint.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = TripWaypoint.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 // tests for TableResponse
 void main() {
-    var instance = new TableResponse();
+    var instance = new TableResponse(code: TableResponseCodeEnum.ok);
 
   group('test TableResponse', () {
     // String code

@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 // tests for NearestResponse
 void main() {
-    var instance = new NearestResponse();
+    var instance = new NearestResponse(code: NearestResponseCodeEnum.ok);
 
   group('test NearestResponse', () {
     // String code

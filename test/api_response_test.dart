@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 // tests for ApiResponse
 void main() {
-    var instance = new ApiResponse();
+    var instance = new ApiResponse(code: ApiResponseCodeEnum.ok);
 
   group('test ApiResponse', () {
     // String code

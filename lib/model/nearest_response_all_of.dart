@@ -1,10 +1,11 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of osrm_dart_sdk.api;
@@ -23,49 +24,87 @@ class NearestResponseAllOf {
 
   @override
   int get hashCode =>
-    (waypoints == null ? 0 : waypoints.hashCode);
+    // ignore: unnecessary_parenthesis
+    (waypoints.hashCode);
 
   @override
   String toString() => 'NearestResponseAllOf[waypoints=$waypoints]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (waypoints != null) {
       json[r'waypoints'] = waypoints;
-    }
     return json;
   }
 
   /// Returns a new [NearestResponseAllOf] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static NearestResponseAllOf fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : NearestResponseAllOf(
-        waypoints: NearestWaypoint.listFromJson(json[r'waypoints']),
-    );
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static NearestResponseAllOf? fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
 
-  static List<NearestResponseAllOf> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <NearestResponseAllOf>[]
-      : json.map((v) => NearestResponseAllOf.fromJson(v)).toList(growable: true == growable);
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "NearestResponseAllOf[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "NearestResponseAllOf[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
 
-  static Map<String, NearestResponseAllOf> mapFromJson(Map<String, dynamic> json) {
+      return NearestResponseAllOf(
+        waypoints: NearestWaypoint.listFromJson(json[r'waypoints']) ?? const [],
+      );
+    }
+    return null;
+  }
+
+  static List<NearestResponseAllOf>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <NearestResponseAllOf>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = NearestResponseAllOf.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
+
+  static Map<String, NearestResponseAllOf> mapFromJson(dynamic json) {
     final map = <String, NearestResponseAllOf>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = NearestResponseAllOf.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = NearestResponseAllOf.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of NearestResponseAllOf-objects as value to a dart map
-  static Map<String, List<NearestResponseAllOf>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<NearestResponseAllOf>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<NearestResponseAllOf>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = NearestResponseAllOf.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = NearestResponseAllOf.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:osrm_dart_sdk/api.dart';
 
@@ -36,7 +36,7 @@ final hints = hints_example; // String | Hint from previous request to derive po
 final approaches = approaches_example; // String | Keep waypoints on curb side.
 final exclude = exclude_example; // String | Additive list of classes to avoid, order does not matter.
 
-try { 
+try {
     final result = api_instance.nearest(version, profile, coordinate, number, bearings, radiuses, generateHints, hints, approaches, exclude);
     print(result);
 } catch (e) {
@@ -79,7 +79,7 @@ No authorization required
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:osrm_dart_sdk/api.dart';
 
@@ -101,7 +101,7 @@ final overview = overview_example; // String | Add overview geometry either full
 final continueStraight = continueStraight_example; // String | Forces the route to keep going straight at waypoints constraining uturns there even if it would be faster. Default value depends on the profile.
 final waypoints = waypoints_example; // String | Treats input coordinates indicated by given indices as waypoints in returned Match object. Default is to treat all input coordinates as waypoints.
 
-try { 
+try {
     final result = api_instance.route(version, profile, coordinates, bearings, radiuses, generateHints, hints, approaches, exclude, alternatives, steps, annotations, geometries, overview, continueStraight, waypoints);
     print(result);
 } catch (e) {
@@ -150,7 +150,7 @@ No authorization required
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:osrm_dart_sdk/api.dart';
 
@@ -167,7 +167,7 @@ final exclude = exclude_example; // String | Additive list of classes to avoid, 
 final sources = sources_example; // String | Use location with given index as source.
 final destinations = destinations_example; // String | Use location with given index as destination.
 
-try { 
+try {
     final result = api_instance.table(version, profile, coordinates, bearings, radiuses, generateHints, hints, approaches, exclude, sources, destinations);
     print(result);
 } catch (e) {
@@ -211,7 +211,7 @@ No authorization required
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:osrm_dart_sdk/api.dart';
 
@@ -233,7 +233,7 @@ final annotations = annotations_example; // String | Returns additional metadata
 final geometries = geometries_example; // String | Returned route geometry format (influences overview and per step)
 final overview = overview_example; // String | Add overview geometry either full, simplified according to highest zoom level it could be display on, or not at all.
 
-try { 
+try {
     final result = api_instance.trip(version, profile, coordinates, bearings, radiuses, generateHints, hints, approaches, exclude, roundtrip, source_, destination, steps, annotations, geometries, overview);
     print(result);
 } catch (e) {

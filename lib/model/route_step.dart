@@ -1,10 +1,11 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of osrm_dart_sdk.api;
@@ -30,36 +31,114 @@ class RouteStep {
   });
 
   /// The distance traveled by the route, in float meters.
-  double distance;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? distance;
 
   /// The estimated travel time, in float number of seconds.
-  double duration;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? duration;
 
-  Object geometry;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  Object? geometry;
 
-  double weight;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? weight;
 
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
-  String ref;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? ref;
 
-  String pronunciation;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? pronunciation;
 
-  Object destinations;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  Object? destinations;
 
-  Object exits;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  Object? exits;
 
-  String mode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mode;
 
-  StepManeuver maneuver;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  StepManeuver? maneuver;
 
   List<Intersection> intersections;
 
-  String rotaryName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rotaryName;
 
-  String rotaryPronunciation;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rotaryPronunciation;
 
-  RouteStepDrivingSideEnum drivingSide;
+  RouteStepDrivingSideEnum? drivingSide;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is RouteStep &&
@@ -81,21 +160,22 @@ class RouteStep {
 
   @override
   int get hashCode =>
-    (distance == null ? 0 : distance.hashCode) +
-    (duration == null ? 0 : duration.hashCode) +
-    (geometry == null ? 0 : geometry.hashCode) +
-    (weight == null ? 0 : weight.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (ref == null ? 0 : ref.hashCode) +
-    (pronunciation == null ? 0 : pronunciation.hashCode) +
-    (destinations == null ? 0 : destinations.hashCode) +
-    (exits == null ? 0 : exits.hashCode) +
-    (mode == null ? 0 : mode.hashCode) +
-    (maneuver == null ? 0 : maneuver.hashCode) +
-    (intersections == null ? 0 : intersections.hashCode) +
-    (rotaryName == null ? 0 : rotaryName.hashCode) +
-    (rotaryPronunciation == null ? 0 : rotaryPronunciation.hashCode) +
-    (drivingSide == null ? 0 : drivingSide.hashCode);
+    // ignore: unnecessary_parenthesis
+    (distance == null ? 0 : distance!.hashCode) +
+    (duration == null ? 0 : duration!.hashCode) +
+    (geometry == null ? 0 : geometry!.hashCode) +
+    (weight == null ? 0 : weight!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (ref == null ? 0 : ref!.hashCode) +
+    (pronunciation == null ? 0 : pronunciation!.hashCode) +
+    (destinations == null ? 0 : destinations!.hashCode) +
+    (exits == null ? 0 : exits!.hashCode) +
+    (mode == null ? 0 : mode!.hashCode) +
+    (maneuver == null ? 0 : maneuver!.hashCode) +
+    (intersections.hashCode) +
+    (rotaryName == null ? 0 : rotaryName!.hashCode) +
+    (rotaryPronunciation == null ? 0 : rotaryPronunciation!.hashCode) +
+    (drivingSide == null ? 0 : drivingSide!.hashCode);
 
   @override
   String toString() => 'RouteStep[distance=$distance, duration=$duration, geometry=$geometry, weight=$weight, name=$name, ref=$ref, pronunciation=$pronunciation, destinations=$destinations, exits=$exits, mode=$mode, maneuver=$maneuver, intersections=$intersections, rotaryName=$rotaryName, rotaryPronunciation=$rotaryPronunciation, drivingSide=$drivingSide]';
@@ -135,9 +215,7 @@ class RouteStep {
     if (maneuver != null) {
       json[r'maneuver'] = maneuver;
     }
-    if (intersections != null) {
       json[r'intersections'] = intersections;
-    }
     if (rotaryName != null) {
       json[r'rotary_name'] = rotaryName;
     }
@@ -151,50 +229,89 @@ class RouteStep {
   }
 
   /// Returns a new [RouteStep] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static RouteStep fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : RouteStep(
-        distance: json[r'distance'],
-        duration: json[r'duration'],
-        geometry: json[r'geometry'],
-        weight: json[r'weight'],
-        name: json[r'name'],
-        ref: json[r'ref'],
-        pronunciation: json[r'pronunciation'],
-        destinations: json[r'destinations'],
-        exits: json[r'exits'],
-        mode: json[r'mode'],
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static RouteStep? fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "RouteStep[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "RouteStep[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
+      return RouteStep(
+        distance: mapValueOfType<double>(json, r'distance'),
+        duration: mapValueOfType<double>(json, r'duration'),
+        geometry: mapValueOfType<Object>(json, r'geometry'),
+        weight: mapValueOfType<double>(json, r'weight'),
+        name: mapValueOfType<String>(json, r'name'),
+        ref: mapValueOfType<String>(json, r'ref'),
+        pronunciation: mapValueOfType<String>(json, r'pronunciation'),
+        destinations: mapValueOfType<Object>(json, r'destinations'),
+        exits: mapValueOfType<Object>(json, r'exits'),
+        mode: mapValueOfType<String>(json, r'mode'),
         maneuver: StepManeuver.fromJson(json[r'maneuver']),
-        intersections: Intersection.listFromJson(json[r'intersections']),
-        rotaryName: json[r'rotary_name'],
-        rotaryPronunciation: json[r'rotary_pronunciation'],
+        intersections: Intersection.listFromJson(json[r'intersections']) ?? const [],
+        rotaryName: mapValueOfType<String>(json, r'rotary_name'),
+        rotaryPronunciation: mapValueOfType<String>(json, r'rotary_pronunciation'),
         drivingSide: RouteStepDrivingSideEnum.fromJson(json[r'driving_side']),
-    );
+      );
+    }
+    return null;
+  }
 
-  static List<RouteStep> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <RouteStep>[]
-      : json.map((v) => RouteStep.fromJson(v)).toList(growable: true == growable);
+  static List<RouteStep>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <RouteStep>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = RouteStep.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
-  static Map<String, RouteStep> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, RouteStep> mapFromJson(dynamic json) {
     final map = <String, RouteStep>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = RouteStep.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = RouteStep.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of RouteStep-objects as value to a dart map
-  static Map<String, List<RouteStep>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<RouteStep>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<RouteStep>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = RouteStep.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = RouteStep.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 
 
@@ -219,23 +336,28 @@ class RouteStepDrivingSideEnum {
     right,
   ];
 
-  static RouteStepDrivingSideEnum fromJson(dynamic value) =>
-    RouteStepDrivingSideEnumTypeTransformer().decode(value);
+  static RouteStepDrivingSideEnum? fromJson(dynamic value) => RouteStepDrivingSideEnumTypeTransformer().decode(value);
 
-  static List<RouteStepDrivingSideEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <RouteStepDrivingSideEnum>[]
-      : json
-          .map((value) => RouteStepDrivingSideEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<RouteStepDrivingSideEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <RouteStepDrivingSideEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = RouteStepDrivingSideEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [RouteStepDrivingSideEnum] to String,
 /// and [decode] dynamic data back to [RouteStepDrivingSideEnum].
 class RouteStepDrivingSideEnumTypeTransformer {
-  const RouteStepDrivingSideEnumTypeTransformer._();
+  factory RouteStepDrivingSideEnumTypeTransformer() => _instance ??= const RouteStepDrivingSideEnumTypeTransformer._();
 
-  factory RouteStepDrivingSideEnumTypeTransformer() => _instance ??= RouteStepDrivingSideEnumTypeTransformer._();
+  const RouteStepDrivingSideEnumTypeTransformer._();
 
   String encode(RouteStepDrivingSideEnum data) => data.value;
 
@@ -247,19 +369,22 @@ class RouteStepDrivingSideEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  RouteStepDrivingSideEnum decode(dynamic data, {bool allowNull}) {
-    switch (data) {
-      case r'left': return RouteStepDrivingSideEnum.left;
-      case r'right': return RouteStepDrivingSideEnum.right;
-      default:
-        if (allowNull == false) {
-          throw ArgumentError('Unknown enum value to decode: $data');
-        }
+  RouteStepDrivingSideEnum? decode(dynamic data, {bool allowNull = true}) {
+    if (data != null) {
+      switch (data.toString()) {
+        case r'left': return RouteStepDrivingSideEnum.left;
+        case r'right': return RouteStepDrivingSideEnum.right;
+        default:
+          if (!allowNull) {
+            throw ArgumentError('Unknown enum value to decode: $data');
+          }
+      }
     }
     return null;
   }
 
   /// Singleton [RouteStepDrivingSideEnumTypeTransformer] instance.
-  static RouteStepDrivingSideEnumTypeTransformer _instance;
+  static RouteStepDrivingSideEnumTypeTransformer? _instance;
 }
+
 

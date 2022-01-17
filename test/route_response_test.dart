@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 // tests for RouteResponse
 void main() {
-    var instance = new RouteResponse();
+    var instance = new RouteResponse(code: RouteResponseCodeEnum.ok);
 
   group('test RouteResponse', () {
     // String code

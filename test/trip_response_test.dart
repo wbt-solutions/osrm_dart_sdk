@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 // tests for TripResponse
 void main() {
-    var instance = new TripResponse();
+    var instance = new TripResponse(code: TripResponseCodeEnum.ok);
 
   group('test TripResponse', () {
     // String code

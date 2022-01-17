@@ -1,6 +1,7 @@
 .gitignore
 .travis.yml
 README.md
+analysis_options.yaml
 doc/Annotation.md
 doc/AnnotationMetadata.md
 doc/ApiResponse.md

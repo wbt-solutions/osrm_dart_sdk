@@ -1,10 +1,11 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of osrm_dart_sdk.api;
@@ -18,7 +19,13 @@ class Lane {
 
   List<String> indications;
 
-  bool valid;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? valid;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is Lane &&
@@ -27,17 +34,16 @@ class Lane {
 
   @override
   int get hashCode =>
-    (indications == null ? 0 : indications.hashCode) +
-    (valid == null ? 0 : valid.hashCode);
+    // ignore: unnecessary_parenthesis
+    (indications.hashCode) +
+    (valid == null ? 0 : valid!.hashCode);
 
   @override
   String toString() => 'Lane[indications=$indications, valid=$valid]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (indications != null) {
       json[r'indications'] = indications;
-    }
     if (valid != null) {
       json[r'valid'] = valid;
     }
@@ -45,38 +51,77 @@ class Lane {
   }
 
   /// Returns a new [Lane] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static Lane fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : Lane(
-        indications: json[r'indications'] == null
-          ? null
-          : (json[r'indications'] as List).cast<String>(),
-        valid: json[r'valid'],
-    );
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static Lane? fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
 
-  static List<Lane> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <Lane>[]
-      : json.map((v) => Lane.fromJson(v)).toList(growable: true == growable);
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "Lane[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "Lane[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
 
-  static Map<String, Lane> mapFromJson(Map<String, dynamic> json) {
+      return Lane(
+        indications: json[r'indications'] is List
+            ? (json[r'indications'] as List).cast<String>()
+            : const [],
+        valid: mapValueOfType<bool>(json, r'valid'),
+      );
+    }
+    return null;
+  }
+
+  static List<Lane>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <Lane>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = Lane.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
+
+  static Map<String, Lane> mapFromJson(dynamic json) {
     final map = <String, Lane>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = Lane.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = Lane.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of Lane-objects as value to a dart map
-  static Map<String, List<Lane>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<Lane>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<Lane>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = Lane.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = Lane.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

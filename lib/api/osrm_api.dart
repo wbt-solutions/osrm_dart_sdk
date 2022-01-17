@@ -1,17 +1,18 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of osrm_dart_sdk.api;
 
 
 class OSRMApi {
-  OSRMApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  OSRMApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -46,76 +47,52 @@ class OSRMApi {
   ///
   /// * [String] exclude:
   ///   Additive list of classes to avoid, order does not matter.
-  Future<Response> nearestWithHttpInfo(String version, String profile, String coordinate, int number, { String bearings, String radiuses, bool generateHints, String hints, String approaches, String exclude }) async {
-    // Verify required params are set.
-    if (version == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: version');
-    }
-    if (profile == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: profile');
-    }
-    if (coordinate == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: coordinate');
-    }
-    if (number == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: number');
-    }
-
+  Future<Response> nearestWithHttpInfo(String version, String profile, String coordinate, int number, { String? bearings, String? radiuses, bool? generateHints, String? hints, String? approaches, String? exclude, }) async {
+    // ignore: prefer_const_declarations
     final path = r'/nearest/{version}/{profile}/{coordinate}.json'
-      .replaceAll('{' + 'version' + '}', version.toString())
-      .replaceAll('{' + 'profile' + '}', profile.toString())
-      .replaceAll('{' + 'coordinate' + '}', coordinate.toString());
+      .replaceAll('{version}', version)
+      .replaceAll('{profile}', profile)
+      .replaceAll('{coordinate}', coordinate);
 
-    Object postBody;
+    // ignore: prefer_final_locals
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (bearings != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'bearings', bearings));
+      queryParams.addAll(_queryParams('', 'bearings', bearings));
     }
     if (radiuses != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'radiuses', radiuses));
+      queryParams.addAll(_queryParams('', 'radiuses', radiuses));
     }
     if (generateHints != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'generate_hints', generateHints));
+      queryParams.addAll(_queryParams('', 'generate_hints', generateHints));
     }
     if (hints != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hints', hints));
+      queryParams.addAll(_queryParams('', 'hints', hints));
     }
     if (approaches != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'approaches', approaches));
+      queryParams.addAll(_queryParams('', 'approaches', approaches));
     }
     if (exclude != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'exclude', exclude));
+      queryParams.addAll(_queryParams('', 'exclude', exclude));
     }
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'number', number));
+      queryParams.addAll(_queryParams('', 'number', number));
 
-    final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    const authNames = <String>[];
+    const contentTypes = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
-      bool hasFields = false;
-      final mp = MultipartRequest(null, null);
-      if (hasFields) {
-        postBody = mp;
-      }
-    } else {
-    }
 
-    return await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path,
       'GET',
       queryParams,
       postBody,
       headerParams,
       formParams,
-      nullableContentType,
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -150,18 +127,19 @@ class OSRMApi {
   ///
   /// * [String] exclude:
   ///   Additive list of classes to avoid, order does not matter.
-  Future<NearestResponse> nearest(String version, String profile, String coordinate, int number, { String bearings, String radiuses, bool generateHints, String hints, String approaches, String exclude }) async {
-    final response = await nearestWithHttpInfo(version, profile, coordinate, number,  bearings: bearings, radiuses: radiuses, generateHints: generateHints, hints: hints, approaches: approaches, exclude: exclude );
+  Future<NearestResponse?> nearest(String version, String profile, String coordinate, int number, { String? bearings, String? radiuses, bool? generateHints, String? hints, String? approaches, String? exclude, }) async {
+    final response = await nearestWithHttpInfo(version, profile, coordinate, number,  bearings: bearings, radiuses: radiuses, generateHints: generateHints, hints: hints, approaches: approaches, exclude: exclude, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'NearestResponse') as NearestResponse;
-        }
-    return Future<NearestResponse>.value(null);
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'NearestResponse',) as NearestResponse;
+
+    }
+    return null;
   }
 
   /// Performs an HTTP 'GET /route/{version}/{profile}/{coordinates}' operation and returns the [Response].
@@ -213,93 +191,72 @@ class OSRMApi {
   ///
   /// * [String] waypoints:
   ///   Treats input coordinates indicated by given indices as waypoints in returned Match object. Default is to treat all input coordinates as waypoints.
-  Future<Response> routeWithHttpInfo(String version, String profile, String coordinates, { String bearings, String radiuses, bool generateHints, String hints, String approaches, String exclude, dynamic alternatives, bool steps, bool annotations, String geometries, String overview, String continueStraight, String waypoints }) async {
-    // Verify required params are set.
-    if (version == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: version');
-    }
-    if (profile == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: profile');
-    }
-    if (coordinates == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: coordinates');
-    }
-
+  Future<Response> routeWithHttpInfo(String version, String profile, String coordinates, { String? bearings, String? radiuses, bool? generateHints, String? hints, String? approaches, String? exclude, dynamic alternatives, bool? steps, bool? annotations, String? geometries, String? overview, String? continueStraight, String? waypoints, }) async {
+    // ignore: prefer_const_declarations
     final path = r'/route/{version}/{profile}/{coordinates}'
-      .replaceAll('{' + 'version' + '}', version.toString())
-      .replaceAll('{' + 'profile' + '}', profile.toString())
-      .replaceAll('{' + 'coordinates' + '}', coordinates.toString());
+      .replaceAll('{version}', version)
+      .replaceAll('{profile}', profile)
+      .replaceAll('{coordinates}', coordinates);
 
-    Object postBody;
+    // ignore: prefer_final_locals
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (bearings != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'bearings', bearings));
+      queryParams.addAll(_queryParams('', 'bearings', bearings));
     }
     if (radiuses != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'radiuses', radiuses));
+      queryParams.addAll(_queryParams('', 'radiuses', radiuses));
     }
     if (generateHints != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'generate_hints', generateHints));
+      queryParams.addAll(_queryParams('', 'generate_hints', generateHints));
     }
     if (hints != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hints', hints));
+      queryParams.addAll(_queryParams('', 'hints', hints));
     }
     if (approaches != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'approaches', approaches));
+      queryParams.addAll(_queryParams('', 'approaches', approaches));
     }
     if (exclude != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'exclude', exclude));
+      queryParams.addAll(_queryParams('', 'exclude', exclude));
     }
     if (alternatives != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'alternatives', alternatives));
+      queryParams.addAll(_queryParams('', 'alternatives', alternatives));
     }
     if (steps != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'steps', steps));
+      queryParams.addAll(_queryParams('', 'steps', steps));
     }
     if (annotations != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'annotations', annotations));
+      queryParams.addAll(_queryParams('', 'annotations', annotations));
     }
     if (geometries != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'geometries', geometries));
+      queryParams.addAll(_queryParams('', 'geometries', geometries));
     }
     if (overview != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'overview', overview));
+      queryParams.addAll(_queryParams('', 'overview', overview));
     }
     if (continueStraight != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'continue_straight', continueStraight));
+      queryParams.addAll(_queryParams('', 'continue_straight', continueStraight));
     }
     if (waypoints != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'waypoints', waypoints));
+      queryParams.addAll(_queryParams('', 'waypoints', waypoints));
     }
 
-    final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    const authNames = <String>[];
+    const contentTypes = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
-      bool hasFields = false;
-      final mp = MultipartRequest(null, null);
-      if (hasFields) {
-        postBody = mp;
-      }
-    } else {
-    }
 
-    return await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path,
       'GET',
       queryParams,
       postBody,
       headerParams,
       formParams,
-      nullableContentType,
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -352,18 +309,19 @@ class OSRMApi {
   ///
   /// * [String] waypoints:
   ///   Treats input coordinates indicated by given indices as waypoints in returned Match object. Default is to treat all input coordinates as waypoints.
-  Future<RouteResponse> route(String version, String profile, String coordinates, { String bearings, String radiuses, bool generateHints, String hints, String approaches, String exclude, dynamic alternatives, bool steps, bool annotations, String geometries, String overview, String continueStraight, String waypoints }) async {
-    final response = await routeWithHttpInfo(version, profile, coordinates,  bearings: bearings, radiuses: radiuses, generateHints: generateHints, hints: hints, approaches: approaches, exclude: exclude, alternatives: alternatives, steps: steps, annotations: annotations, geometries: geometries, overview: overview, continueStraight: continueStraight, waypoints: waypoints );
+  Future<RouteResponse?> route(String version, String profile, String coordinates, { String? bearings, String? radiuses, bool? generateHints, String? hints, String? approaches, String? exclude, dynamic alternatives, bool? steps, bool? annotations, String? geometries, String? overview, String? continueStraight, String? waypoints, }) async {
+    final response = await routeWithHttpInfo(version, profile, coordinates,  bearings: bearings, radiuses: radiuses, generateHints: generateHints, hints: hints, approaches: approaches, exclude: exclude, alternatives: alternatives, steps: steps, annotations: annotations, geometries: geometries, overview: overview, continueStraight: continueStraight, waypoints: waypoints, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'RouteResponse') as RouteResponse;
-        }
-    return Future<RouteResponse>.value(null);
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'RouteResponse',) as RouteResponse;
+
+    }
+    return null;
   }
 
   /// Performs an HTTP 'GET /table/{version}/{profile}/{coordinates}' operation and returns the [Response].
@@ -400,78 +358,57 @@ class OSRMApi {
   ///
   /// * [String] destinations:
   ///   Use location with given index as destination.
-  Future<Response> tableWithHttpInfo(String version, String profile, String coordinates, { String bearings, String radiuses, bool generateHints, String hints, String approaches, String exclude, String sources, String destinations }) async {
-    // Verify required params are set.
-    if (version == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: version');
-    }
-    if (profile == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: profile');
-    }
-    if (coordinates == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: coordinates');
-    }
-
+  Future<Response> tableWithHttpInfo(String version, String profile, String coordinates, { String? bearings, String? radiuses, bool? generateHints, String? hints, String? approaches, String? exclude, String? sources, String? destinations, }) async {
+    // ignore: prefer_const_declarations
     final path = r'/table/{version}/{profile}/{coordinates}'
-      .replaceAll('{' + 'version' + '}', version.toString())
-      .replaceAll('{' + 'profile' + '}', profile.toString())
-      .replaceAll('{' + 'coordinates' + '}', coordinates.toString());
+      .replaceAll('{version}', version)
+      .replaceAll('{profile}', profile)
+      .replaceAll('{coordinates}', coordinates);
 
-    Object postBody;
+    // ignore: prefer_final_locals
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (bearings != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'bearings', bearings));
+      queryParams.addAll(_queryParams('', 'bearings', bearings));
     }
     if (radiuses != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'radiuses', radiuses));
+      queryParams.addAll(_queryParams('', 'radiuses', radiuses));
     }
     if (generateHints != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'generate_hints', generateHints));
+      queryParams.addAll(_queryParams('', 'generate_hints', generateHints));
     }
     if (hints != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hints', hints));
+      queryParams.addAll(_queryParams('', 'hints', hints));
     }
     if (approaches != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'approaches', approaches));
+      queryParams.addAll(_queryParams('', 'approaches', approaches));
     }
     if (exclude != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'exclude', exclude));
+      queryParams.addAll(_queryParams('', 'exclude', exclude));
     }
     if (sources != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'sources', sources));
+      queryParams.addAll(_queryParams('', 'sources', sources));
     }
     if (destinations != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'destinations', destinations));
+      queryParams.addAll(_queryParams('', 'destinations', destinations));
     }
 
-    final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    const authNames = <String>[];
+    const contentTypes = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
-      bool hasFields = false;
-      final mp = MultipartRequest(null, null);
-      if (hasFields) {
-        postBody = mp;
-      }
-    } else {
-    }
 
-    return await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path,
       'GET',
       queryParams,
       postBody,
       headerParams,
       formParams,
-      nullableContentType,
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -509,18 +446,19 @@ class OSRMApi {
   ///
   /// * [String] destinations:
   ///   Use location with given index as destination.
-  Future<TableResponse> table(String version, String profile, String coordinates, { String bearings, String radiuses, bool generateHints, String hints, String approaches, String exclude, String sources, String destinations }) async {
-    final response = await tableWithHttpInfo(version, profile, coordinates,  bearings: bearings, radiuses: radiuses, generateHints: generateHints, hints: hints, approaches: approaches, exclude: exclude, sources: sources, destinations: destinations );
+  Future<TableResponse?> table(String version, String profile, String coordinates, { String? bearings, String? radiuses, bool? generateHints, String? hints, String? approaches, String? exclude, String? sources, String? destinations, }) async {
+    final response = await tableWithHttpInfo(version, profile, coordinates,  bearings: bearings, radiuses: radiuses, generateHints: generateHints, hints: hints, approaches: approaches, exclude: exclude, sources: sources, destinations: destinations, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'TableResponse') as TableResponse;
-        }
-    return Future<TableResponse>.value(null);
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TableResponse',) as TableResponse;
+
+    }
+    return null;
   }
 
   /// Performs an HTTP 'GET /trip/{version}/{profile}/{coordinates}' operation and returns the [Response].
@@ -572,93 +510,72 @@ class OSRMApi {
   ///
   /// * [String] overview:
   ///   Add overview geometry either full, simplified according to highest zoom level it could be display on, or not at all.
-  Future<Response> tripWithHttpInfo(String version, String profile, String coordinates, { String bearings, String radiuses, bool generateHints, String hints, String approaches, String exclude, bool roundtrip, String source_, String destination, bool steps, String annotations, String geometries, String overview }) async {
-    // Verify required params are set.
-    if (version == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: version');
-    }
-    if (profile == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: profile');
-    }
-    if (coordinates == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: coordinates');
-    }
-
+  Future<Response> tripWithHttpInfo(String version, String profile, String coordinates, { String? bearings, String? radiuses, bool? generateHints, String? hints, String? approaches, String? exclude, bool? roundtrip, String? source_, String? destination, bool? steps, String? annotations, String? geometries, String? overview, }) async {
+    // ignore: prefer_const_declarations
     final path = r'/trip/{version}/{profile}/{coordinates}'
-      .replaceAll('{' + 'version' + '}', version.toString())
-      .replaceAll('{' + 'profile' + '}', profile.toString())
-      .replaceAll('{' + 'coordinates' + '}', coordinates.toString());
+      .replaceAll('{version}', version)
+      .replaceAll('{profile}', profile)
+      .replaceAll('{coordinates}', coordinates);
 
-    Object postBody;
+    // ignore: prefer_final_locals
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (bearings != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'bearings', bearings));
+      queryParams.addAll(_queryParams('', 'bearings', bearings));
     }
     if (radiuses != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'radiuses', radiuses));
+      queryParams.addAll(_queryParams('', 'radiuses', radiuses));
     }
     if (generateHints != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'generate_hints', generateHints));
+      queryParams.addAll(_queryParams('', 'generate_hints', generateHints));
     }
     if (hints != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hints', hints));
+      queryParams.addAll(_queryParams('', 'hints', hints));
     }
     if (approaches != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'approaches', approaches));
+      queryParams.addAll(_queryParams('', 'approaches', approaches));
     }
     if (exclude != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'exclude', exclude));
+      queryParams.addAll(_queryParams('', 'exclude', exclude));
     }
     if (roundtrip != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'roundtrip', roundtrip));
+      queryParams.addAll(_queryParams('', 'roundtrip', roundtrip));
     }
     if (source_ != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'source', source_));
+      queryParams.addAll(_queryParams('', 'source', source_));
     }
     if (destination != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'destination', destination));
+      queryParams.addAll(_queryParams('', 'destination', destination));
     }
     if (steps != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'steps', steps));
+      queryParams.addAll(_queryParams('', 'steps', steps));
     }
     if (annotations != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'annotations', annotations));
+      queryParams.addAll(_queryParams('', 'annotations', annotations));
     }
     if (geometries != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'geometries', geometries));
+      queryParams.addAll(_queryParams('', 'geometries', geometries));
     }
     if (overview != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'overview', overview));
+      queryParams.addAll(_queryParams('', 'overview', overview));
     }
 
-    final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    const authNames = <String>[];
+    const contentTypes = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
-      bool hasFields = false;
-      final mp = MultipartRequest(null, null);
-      if (hasFields) {
-        postBody = mp;
-      }
-    } else {
-    }
 
-    return await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path,
       'GET',
       queryParams,
       postBody,
       headerParams,
       formParams,
-      nullableContentType,
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -711,17 +628,18 @@ class OSRMApi {
   ///
   /// * [String] overview:
   ///   Add overview geometry either full, simplified according to highest zoom level it could be display on, or not at all.
-  Future<TripResponse> trip(String version, String profile, String coordinates, { String bearings, String radiuses, bool generateHints, String hints, String approaches, String exclude, bool roundtrip, String source_, String destination, bool steps, String annotations, String geometries, String overview }) async {
-    final response = await tripWithHttpInfo(version, profile, coordinates,  bearings: bearings, radiuses: radiuses, generateHints: generateHints, hints: hints, approaches: approaches, exclude: exclude, roundtrip: roundtrip, source_: source_, destination: destination, steps: steps, annotations: annotations, geometries: geometries, overview: overview );
+  Future<TripResponse?> trip(String version, String profile, String coordinates, { String? bearings, String? radiuses, bool? generateHints, String? hints, String? approaches, String? exclude, bool? roundtrip, String? source_, String? destination, bool? steps, String? annotations, String? geometries, String? overview, }) async {
+    final response = await tripWithHttpInfo(version, profile, coordinates,  bearings: bearings, radiuses: radiuses, generateHints: generateHints, hints: hints, approaches: approaches, exclude: exclude, roundtrip: roundtrip, source_: source_, destination: destination, steps: steps, annotations: annotations, geometries: geometries, overview: overview, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'TripResponse') as TripResponse;
-        }
-    return Future<TripResponse>.value(null);
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TripResponse',) as TripResponse;
+
+    }
+    return null;
   }
 }
